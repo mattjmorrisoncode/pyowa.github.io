@@ -1,6 +1,10 @@
 
 on:
   workflow_call:
+    outputs:
+      publish:
+        description: 'Publish? 1 for Yes 0 for No'
+        value: jobs.should-publish.outputs.publish
 
 jobs:
   should-publish:

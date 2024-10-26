@@ -13,8 +13,17 @@ jobs:
   publish:
     needs: should-publish
     if: needs.should-publish.outputs.publish == 1
+    environment: Test
     runs-on: ubuntu-latest
     steps:
       - name: Show results
         run: |
           echo "Publish It!"
+      - name: Post to Slack
+        id: slack
+        uses: slackapi/slack-github-action@v1.27.0
+        with:
+          channel-id: ${{ secrets.SLACK_CHANNEL_ID }}
+          slack-message: "Testing"
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}

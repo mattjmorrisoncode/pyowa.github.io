@@ -1,0 +1,24 @@
+name: Publish Website Update
+
+on: workflow_dispatch
+
+jobs:
+
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check pull request description for publish
+        id: is-checked
+        env:
+          BODY: ${{ github.event.pull_request.body }}
+        run: |
+          if [[ $BODY == *"[X] Send Notifications To Group"* ]]; then
+              echo "Checked"
+              echo "publish=1" >> "$GITHUB_OUTPUT"
+          else
+              echo "publish=0" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Show results
+        if: steps.is-checked.outputs.publush == 1
+        run: |
+          echo "Publish It!"

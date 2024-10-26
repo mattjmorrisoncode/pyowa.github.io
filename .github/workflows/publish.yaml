@@ -25,6 +25,6 @@ jobs:
           echo $PUBLISH
           echo "publish=$PUBLISH" >> "$GITHUB_OUTPUT"
       - name: Show results
-        if: steps.is-checked.outputs.publush == '1'
+        if: steps.is-checked.outputs.publish == 1
         run: |
           echo "Publish It!"

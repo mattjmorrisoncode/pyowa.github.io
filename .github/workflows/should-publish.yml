@@ -6,9 +6,7 @@ jobs:
   should-publish:
     runs-on: ubuntu-latest
     outputs:
-      publish:
-        description: "Publish? 1 if Yes 0 if No"
-        value: ${{ steps.is-checked.outputs.publish }}
+      publish: ${{ steps.is-checked.outputs.publish }}
     steps:
       - name: Check pull request description for publish
         id: is-checked

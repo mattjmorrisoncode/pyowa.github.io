@@ -1,0 +1,24 @@
+
+on:
+  workflow_call:
+
+jobs:
+  should-publish:
+    runs-on: ubuntu-latest
+    outputs:
+      publish:
+        description: "Publish? 1 if Yes 0 if No"
+        value: ${{ steps.is-checked.outputs.publish }}
+    steps:
+      - name: Check pull request description for publish
+        id: is-checked
+        env:
+          BODY: ${{ github.event.pull_request.body }}
+        shell: bash
+        run: |
+          if [[ $BODY =~ "[x] Send Notifications To Group" ]]; then
+            PUBLISH=1
+          else
+            PUBLISH=0
+          fi
+          echo "publish=$PUBLISH" >> "$GITHUB_OUTPUT"

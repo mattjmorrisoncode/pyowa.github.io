@@ -22,6 +22,6 @@ jobs:
               echo "publish=0" >> "$GITHUB_OUTPUT"
           fi
       - name: Show results
-        if: steps.is-checked.outputs.publush == 1
+        if: steps.is-checked.outputs.publush == "1"
         run: |
           echo "Publish It!"

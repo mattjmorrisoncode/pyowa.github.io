@@ -1,0 +1,19 @@
+name: Publish Website Update
+
+on:
+  pull_request:
+    branches:
+      - new-actions
+
+jobs:
+
+  should-publish:
+    uses: ./.github/workflows/should-publish.yml
+
+  publish:
+    needs: should-publish
+    if: needs.should-publish.outputs.publish == 1
+    environment: Test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: ./.github/workflows/slack-publush.yml

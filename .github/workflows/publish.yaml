@@ -15,10 +15,12 @@ jobs:
         env:
           BODY: ${{ github.event.pull_request.body }}
         run: |
+          echo $BODY
           if [[ $BODY == *"[X] Send Notifications To Group"* ]]; then
               echo "Checked"
               echo "publish=1" >> "$GITHUB_OUTPUT"
           else
+              echo "Not Checked"
               echo "publish=0" >> "$GITHUB_OUTPUT"
           fi
       - name: Show results

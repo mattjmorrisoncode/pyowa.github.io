@@ -1,6 +1,9 @@
 name: Publish Website Update
 
-on: workflow_dispatch
+on:
+  pull_request:
+    branches:
+      - new-actions
 
 jobs:
 

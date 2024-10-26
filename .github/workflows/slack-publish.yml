@@ -4,7 +4,6 @@ on:
 
 jobs:
   notify_slack:
-    runs-on: ubuntu-latest
     uses: slackapi/slack-github-action@v1.27.0
     with:
       channel-id: ${{ secrets.SLACK_CHANNEL_ID }}

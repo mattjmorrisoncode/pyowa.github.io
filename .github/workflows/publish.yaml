@@ -14,15 +14,14 @@ jobs:
         id: is-checked
         env:
           BODY: ${{ github.event.pull_request.body }}
+        shell: bash
         run: |
-          echo $BODY
           if [[ $BODY == *"[X] Send Notifications To Group"* ]]; then
-              echo "Checked"
-              echo "publish=1" >> "$GITHUB_OUTPUT"
+            PUBLISH=1
           else
-              echo "Not Checked"
-              echo "publish=0" >> "$GITHUB_OUTPUT"
+            PUBLISH=0
           fi
+          echo "publish=$PUBLISH" >> "$GITHUB_OUTPUT"
       - name: Show results
         if: steps.is-checked.outputs.publush == '1'
         run: |

@@ -11,8 +11,9 @@ jobs:
     uses: ./.github/workflows/should-publish.yml
 
   publish:
-    needs: [should-publish]
+    needs: should-publish
     if: needs.should-publish.outputs.publish == 1
-    - name: Show results
-      run: |
-        echo "Publish It!"
+    steps:
+      - name: Show results
+        run: |
+          echo "Publish It!"

@@ -16,11 +16,13 @@ jobs:
           BODY: ${{ github.event.pull_request.body }}
         shell: bash
         run: |
+          echo $BODY
           if [[ $BODY =~ "[x] Send Notifications To Group" ]]; then
             PUBLISH=1
           else
             PUBLISH=0
           fi
+          echo $PUBLISH
           echo "publish=$PUBLISH" >> "$GITHUB_OUTPUT"
       - name: Show results
         if: steps.is-checked.outputs.publush == '1'

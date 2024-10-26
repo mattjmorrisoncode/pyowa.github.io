@@ -16,7 +16,7 @@ jobs:
           BODY: ${{ github.event.pull_request.body }}
         shell: bash
         run: |
-          if [[ $BODY == *"[x] Send Notifications To Group"* ]]; then
+          if [[ $BODY =~ "[x] Send Notifications To Group" ]]; then
             PUBLISH=1
           else
             PUBLISH=0

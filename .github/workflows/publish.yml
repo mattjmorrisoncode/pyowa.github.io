@@ -14,6 +14,4 @@ jobs:
     needs: should-publish
     if: needs.should-publish.outputs.publish == 1
     environment: Test
-    runs-on: ubuntu-latest
-    steps:
-      - uses: ./.github/workflows/slack-publish.yml
+    uses: ./.github/workflows/slack-publish.yml

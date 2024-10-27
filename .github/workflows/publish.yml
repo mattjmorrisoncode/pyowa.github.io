@@ -21,3 +21,9 @@ jobs:
     if: needs.should-publish.outputs.publish == 1
     uses: ./.github/workflows/google-group-publish.yml
     secrets: inherit
+
+  publish-facebook:
+    needs: should-publish
+    if: needs.should-publish.outputs.publish == 1
+    uses: ./.github/workflows/facebook-publish.yml
+    secrets: inherit

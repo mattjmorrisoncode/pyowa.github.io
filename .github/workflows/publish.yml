@@ -14,3 +14,4 @@ jobs:
     needs: should-publish
     if: needs.should-publish.outputs.publish == 1
     uses: ./.github/workflows/slack-publish.yml
+    secrets: inherit

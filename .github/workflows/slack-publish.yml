@@ -4,7 +4,6 @@ on:
 
 jobs:
   notify_slack:
-    runs-on: ubuntu-latest
     steps:
       - uses: slackapi/slack-github-action@v1.27.0
         with:

@@ -9,6 +9,6 @@ jobs:
     steps:
       - uses: roncodes/post-to-facebook-page@v1.0.0
         with:
-        page-id: ${{ secrets.FACEBOOK_PAGE_ID }}
-        access-token: ${{ secrets.FACEBOOK_ACCESS_TOKEN }}
-        message: "Check out pyowa.org for a new announcement."
+          page-id: ${{ secrets.FACEBOOK_PAGE_ID }}
+          access-token: ${{ secrets.FACEBOOK_ACCESS_TOKEN }}
+          message: "Check out pyowa.org for a new announcement."

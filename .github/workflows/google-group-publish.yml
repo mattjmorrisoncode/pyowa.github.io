@@ -15,5 +15,5 @@ jobs:
           subject: Pyowa Announcement
           to: mattj.morrison@gmail.com
           from: ${{ secrets.GMAIL_USERNAME }}
-          body: New Pyowa Announcement, check out Pyowa.org for details
-          html_body: Check out <a href="https://pyowa.org">Pyowa.org</a> for a new announcement.
+          body: Check out pyowa.org for a new announcement.
+          html_body: Check out <a href="https://www.pyowa.org">Pyowa.org</a> for a new announcement.

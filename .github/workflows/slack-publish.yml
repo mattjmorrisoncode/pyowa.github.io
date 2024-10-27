@@ -10,6 +10,6 @@ jobs:
       - uses: slackapi/slack-github-action@v1.27.0
         with:
           channel-id: ${{ secrets.SLACK_CHANNEL_ID }}
-          slack-message: "Testing"
+          slack-message: "Check out https://www.pyowa.org for a new announcement."
         env:
           SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}

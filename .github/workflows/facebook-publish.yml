@@ -3,7 +3,7 @@ on:
   workflow_call:
 
 jobs:
-  notify-google-group:
+  notify-facebook:
     runs-on: ubuntu-latest
     environment: Test
     steps:

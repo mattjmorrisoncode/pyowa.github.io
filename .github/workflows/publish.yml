@@ -16,4 +16,4 @@ jobs:
     environment: Test
     runs-on: ubuntu-latest
     steps:
-      - uses: ./.github/workflows/slack-publush.yml
+      - uses: ./.github/workflows/slack-publish.yml

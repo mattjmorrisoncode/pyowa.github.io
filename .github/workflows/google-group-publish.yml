@@ -1,0 +1,19 @@
+
+on:
+  workflow_call:
+
+jobs:
+  notify-google-group:
+    runs-on: ubuntu-latest
+    environment: Test
+    steps:
+      - uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          username: ${{ secrets.GMAIL_USERNAME }}
+          password: ${{ secrets.GMAIL_PASSWORD }}
+          subject: Pyowa Announcement
+          to: mattj.morrison@gmail.com
+          from: ${{ secrets.GMAIL_USERNAME }}
+          body: Check out pyowa.org for a new announcement.
+          html_body: Check out <a href="https://www.pyowa.org">Pyowa.org</a> for a new announcement.

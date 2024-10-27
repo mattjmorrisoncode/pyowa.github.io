@@ -1,0 +1,29 @@
+name: Publish Website Update
+
+on:
+  pull_request:
+    branches:
+      - new-actions
+
+jobs:
+
+  should-publish:
+    uses: ./.github/workflows/should-publish.yml
+
+  publish-slack:
+    needs: should-publish
+    if: needs.should-publish.outputs.publish == 1
+    uses: ./.github/workflows/slack-publish.yml
+    secrets: inherit
+
+  publish-google-group:
+    needs: should-publish
+    if: needs.should-publish.outputs.publish == 1
+    uses: ./.github/workflows/google-group-publish.yml
+    secrets: inherit
+
+  publish-facebook:
+    needs: should-publish
+    if: needs.should-publish.outputs.publish == 1
+    uses: ./.github/workflows/facebook-publish.yml
+    secrets: inherit

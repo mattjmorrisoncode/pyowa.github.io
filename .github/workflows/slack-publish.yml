@@ -1,6 +1,6 @@
 
 on:
-  workflow_call
+  workflow_call:
 
 jobs:
   notify_slack:
